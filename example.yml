@@ -1,0 +1,10 @@
+jobs:
+  - instance: "job1"
+    interval: "*/5 * * * * *"
+    token: "eyJhbGciOiJ"
+    apiGet: "http://localhost:8080/api/workorder_list?key=&limit=10&page=1&status=1"
+    apiPost: "http://localhost:8080/api/db_create"
+    apiPut: "http://localhost:8080/api/workorder_list"
+    queries:
+      - name: "fetch list"
+        query: "select * from work_list where status=1 ORDER BY id desc;"
