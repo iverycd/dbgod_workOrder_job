@@ -2,3 +2,4 @@ example
 job_config.yml
 .idea
 *.log
+dbgod_workOrder_job

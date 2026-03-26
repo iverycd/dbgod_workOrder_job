@@ -1,0 +1,20 @@
+[Unit]
+Description=dbgod WorkOrder Job Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/dbgod_workOrder_job
+ExecStart=/opt/dbgod_workOrder_job/dbgod_workOrder_job -conf job_config.yml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=dbgod_workOrder_job
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
